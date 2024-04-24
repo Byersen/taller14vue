@@ -1,17 +1,25 @@
-<!DOCTYPE html>
-<html lang="">
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width,initial-scale=1.0">
-    <link rel="icon" href="<%= BASE_URL %>favicon.ico">
-    <title><%= htmlWebpackPlugin.options.title %></title>
-  </head>
-  <body>
-    <noscript>
-      <strong>We're sorry but <%= htmlWebpackPlugin.options.title %> doesn't work properly without JavaScript enabled. Please enable it to continue.</strong>
-    </noscript>
-    <div id="app"></div>
-    <!-- built files will be auto injected -->
-  </body>
-</html>
+<div id="app">
+  <h1>Sistema de nombres</h1>
+
+  <div id="app">
+    <h2>Agregar nombres</h2>
+    <form @submit.prevent="agregarNombre">
+      <input v-model.trim="nuevoNombre" placeholder="nombre">
+      <input v-model.trim="nuevoApellido" placeholder="apellido">
+      <button type="submit">agregar</button>
+    </form>
+  </div>
+
+  <div>
+    <h2>Lista de nombres</h2>
+    <ul>
+      <li v-for="(nombre, index) in nombres" :key="index">
+        {{nombre.nombre}} {{nombre.apellido}}
+        <button @click="eliminarNombre(index)">Eliminar </button>
+        <button @click="editorNombre(index)">Editar</button>
+
+      </li>
+    </ul>
+  </div>
+
+</div>
